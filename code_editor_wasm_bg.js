@@ -267,6 +267,29 @@ export function redo() {
     return CodeEditorWorkspace.__wrap(ret);
 }
 
+/**
+* Deserialize string param
+* @param {string} param_str
+* @returns {Param}
+*/
+export function deserialize_param(param_str) {
+    try {
+        const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
+        const ptr0 = passStringToWasm0(param_str, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len0 = WASM_VECTOR_LEN;
+        wasm.deserialize_param(retptr, ptr0, len0);
+        var r0 = getInt32Memory0()[retptr / 4 + 0];
+        var r1 = getInt32Memory0()[retptr / 4 + 1];
+        var r2 = getInt32Memory0()[retptr / 4 + 2];
+        if (r2) {
+            throw takeObject(r1);
+        }
+        return Param.__wrap(r0);
+    } finally {
+        wasm.__wbindgen_add_to_stack_pointer(16);
+    }
+}
+
 let stack_pointer = 128;
 
 function addBorrowedObject(obj) {
@@ -375,6 +398,30 @@ export class CodeEditorWorkspace {
         }
     }
 }
+/**
+*/
+export class Param {
+
+    static __wrap(ptr) {
+        ptr = ptr >>> 0;
+        const obj = Object.create(Param.prototype);
+        obj.__wbg_ptr = ptr;
+
+        return obj;
+    }
+
+    __destroy_into_raw() {
+        const ptr = this.__wbg_ptr;
+        this.__wbg_ptr = 0;
+
+        return ptr;
+    }
+
+    free() {
+        const ptr = this.__destroy_into_raw();
+        wasm.__wbg_param_free(ptr);
+    }
+}
 
 export function __wbindgen_string_new(arg0, arg1) {
     const ret = getStringFromWasm0(arg0, arg1);
@@ -453,11 +500,6 @@ export function __wbindgen_object_clone_ref(arg0) {
     return addHeapObject(ret);
 };
 
-export function __wbindgen_is_string(arg0) {
-    const ret = typeof(getObject(arg0)) === 'string';
-    return ret;
-};
-
 export function __wbg_log_7fe8e5628f82c299(arg0, arg1) {
     console.log(getStringFromWasm0(arg0, arg1));
 };
@@ -494,6 +536,11 @@ export function __wbg_versions_e2e78e134e3e5d01(arg0) {
 export function __wbg_node_1cd7a5d853dbea79(arg0) {
     const ret = getObject(arg0).node;
     return addHeapObject(ret);
+};
+
+export function __wbindgen_is_string(arg0) {
+    const ret = typeof(getObject(arg0)) === 'string';
+    return ret;
 };
 
 export function __wbg_require_8f08ceecec0f4fee() { return handleError(function () {

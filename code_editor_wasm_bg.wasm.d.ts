@@ -5,6 +5,8 @@ export function wasm_start(): void;
 export function get_unsaved_action_queue(a: number): void;
 export function undone(): number;
 export function redo(): number;
+export function __wbg_param_free(a: number): void;
+export function deserialize_param(a: number, b: number, c: number): void;
 export function __wbg_codeeditorworkspace_free(a: number): void;
 export function codeeditorworkspace_new(): number;
 export function codeeditorworkspace_generate_component_code(a: number, b: number, c: number, d: number): void;

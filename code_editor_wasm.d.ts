@@ -19,6 +19,12 @@ export function undone(): CodeEditorWorkspace;
 * @returns {CodeEditorWorkspace}
 */
 export function redo(): CodeEditorWorkspace;
+/**
+* Deserialize string param
+* @param {string} param_str
+* @returns {Param}
+*/
+export function deserialize_param(param_str: string): Param;
 
 export type CodeEditorAction =
   | {
@@ -104,4 +110,9 @@ export class CodeEditorWorkspace {
 * @param {CodeEditorAction} action
 */
   execute(action: CodeEditorAction): void;
+}
+/**
+*/
+export class Param {
+  free(): void;
 }
