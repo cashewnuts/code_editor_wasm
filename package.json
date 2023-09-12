@@ -7,13 +7,11 @@
   "files": [
     "code_editor_wasm_bg.wasm",
     "code_editor_wasm.js",
-    "code_editor_wasm_bg.js",
     "code_editor_wasm.d.ts"
   ],
   "module": "code_editor_wasm.js",
   "types": "code_editor_wasm.d.ts",
   "sideEffects": [
-    "./code_editor_wasm.js",
     "./snippets/*"
   ]
 }
