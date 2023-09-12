@@ -24,7 +24,7 @@ export function redo(): CodeEditorWorkspace;
 * @param {string} param_str
 * @returns {Param}
 */
-export function deserialize_param(param_str: string): Param;
+export function deserialize_param_kind(param_str: string): Param;
 
 export type CodeEditorAction =
   | {
@@ -126,7 +126,7 @@ export interface InitOutput {
   readonly undone: () => number;
   readonly redo: () => number;
   readonly __wbg_param_free: (a: number) => void;
-  readonly deserialize_param: (a: number, b: number, c: number) => void;
+  readonly deserialize_param_kind: (a: number, b: number, c: number) => void;
   readonly __wbg_codeeditorworkspace_free: (a: number) => void;
   readonly codeeditorworkspace_new: () => number;
   readonly codeeditorworkspace_generate_component_code: (a: number, b: number, c: number, d: number) => void;

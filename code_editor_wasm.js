@@ -264,12 +264,12 @@ export function redo() {
 * @param {string} param_str
 * @returns {Param}
 */
-export function deserialize_param(param_str) {
+export function deserialize_param_kind(param_str) {
     try {
         const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
         const ptr0 = passStringToWasm0(param_str, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
         const len0 = WASM_VECTOR_LEN;
-        wasm.deserialize_param(retptr, ptr0, len0);
+        wasm.deserialize_param_kind(retptr, ptr0, len0);
         var r0 = getInt32Memory0()[retptr / 4 + 0];
         var r1 = getInt32Memory0()[retptr / 4 + 1];
         var r2 = getInt32Memory0()[retptr / 4 + 2];
