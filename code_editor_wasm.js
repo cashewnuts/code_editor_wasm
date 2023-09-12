@@ -262,7 +262,7 @@ export function redo() {
 /**
 * Deserialize string param
 * @param {string} param_str
-* @returns {Param}
+* @returns {ParamKind}
 */
 export function deserialize_param_kind(param_str) {
     try {
@@ -276,7 +276,7 @@ export function deserialize_param_kind(param_str) {
         if (r2) {
             throw takeObject(r1);
         }
-        return Param.__wrap(r0);
+        return takeObject(r0);
     } finally {
         wasm.__wbindgen_add_to_stack_pointer(16);
     }
@@ -390,30 +390,6 @@ export class CodeEditorWorkspace {
         }
     }
 }
-/**
-*/
-export class Param {
-
-    static __wrap(ptr) {
-        ptr = ptr >>> 0;
-        const obj = Object.create(Param.prototype);
-        obj.__wbg_ptr = ptr;
-
-        return obj;
-    }
-
-    __destroy_into_raw() {
-        const ptr = this.__wbg_ptr;
-        this.__wbg_ptr = 0;
-
-        return ptr;
-    }
-
-    free() {
-        const ptr = this.__destroy_into_raw();
-        wasm.__wbg_param_free(ptr);
-    }
-}
 
 async function __wbg_load(module, imports) {
     if (typeof Response === 'function' && module instanceof Response) {
@@ -518,6 +494,13 @@ function __wbg_get_imports() {
     imports.wbg.__wbindgen_jsval_loose_eq = function(arg0, arg1) {
         const ret = getObject(arg0) == getObject(arg1);
         return ret;
+    };
+    imports.wbg.__wbg_String_88810dfeb4021902 = function(arg0, arg1) {
+        const ret = String(getObject(arg1));
+        const ptr1 = passStringToWasm0(ret, wasm.__wbindgen_malloc, wasm.__wbindgen_realloc);
+        const len1 = WASM_VECTOR_LEN;
+        getInt32Memory0()[arg0 / 4 + 1] = len1;
+        getInt32Memory0()[arg0 / 4 + 0] = ptr1;
     };
     imports.wbg.__wbg_getwithrefkey_5e6d9547403deab8 = function(arg0, arg1) {
         const ret = getObject(arg0)[getObject(arg1)];

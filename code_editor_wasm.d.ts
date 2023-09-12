@@ -22,9 +22,9 @@ export function redo(): CodeEditorWorkspace;
 /**
 * Deserialize string param
 * @param {string} param_str
-* @returns {Param}
+* @returns {ParamKind}
 */
-export function deserialize_param_kind(param_str: string): Param;
+export function deserialize_param_kind(param_str: string): ParamKind;
 
 export type CodeEditorAction =
   | {
@@ -85,6 +85,19 @@ export interface CodeEditorComponent {
 }
 
 
+
+export type ParamKind =
+  | {
+      kind: "String",
+    }
+  | {
+      kind: "Number",
+    }
+  | {
+      kind: "Boolean",
+    }
+
+
 /**
 */
 export class CodeEditorWorkspace {
@@ -111,11 +124,6 @@ export class CodeEditorWorkspace {
 */
   execute(action: CodeEditorAction): void;
 }
-/**
-*/
-export class Param {
-  free(): void;
-}
 
 export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
 
@@ -125,7 +133,6 @@ export interface InitOutput {
   readonly get_unsaved_action_queue: (a: number) => void;
   readonly undone: () => number;
   readonly redo: () => number;
-  readonly __wbg_param_free: (a: number) => void;
   readonly deserialize_param_kind: (a: number, b: number, c: number) => void;
   readonly __wbg_codeeditorworkspace_free: (a: number) => void;
   readonly codeeditorworkspace_new: () => number;
