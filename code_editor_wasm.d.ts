@@ -63,24 +63,11 @@ export type CodeEditorAction =
 export interface CodeEditorComponent {
   id: string,
   name: string,
-  params: {
-    id: string,
-    name: string,
-    kind: any,
-    required: boolean,
-  }[],
+  module_info: string,
+  params: string,
   body:
-    | {
-        kind: "Instance",
-        content: any[]
-      }
-    | {
-        kind: "Custom",
-        content: string
-      }
-    | {
-        kind: "Module",
-      }
+    | string
+    | null
 }
 
 
