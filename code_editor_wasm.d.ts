@@ -77,7 +77,7 @@ export type Param = {
     name: string,
     kind: string,
     constraints: string,
-    default_value?: string,
+    default_value?: string | null,
     required: boolean,
 }
 
