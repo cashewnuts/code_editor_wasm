@@ -424,6 +424,11 @@ export function __wbindgen_is_object(arg0) {
     return ret;
 };
 
+export function __wbindgen_is_string(arg0) {
+    const ret = typeof(getObject(arg0)) === 'string';
+    return ret;
+};
+
 export function __wbindgen_bigint_from_i64(arg0) {
     const ret = arg0;
     return addHeapObject(ret);
@@ -451,11 +456,6 @@ export function __wbindgen_object_drop_ref(arg0) {
 export function __wbindgen_object_clone_ref(arg0) {
     const ret = getObject(arg0);
     return addHeapObject(ret);
-};
-
-export function __wbindgen_is_string(arg0) {
-    const ret = typeof(getObject(arg0)) === 'string';
-    return ret;
 };
 
 export function __wbg_log_7fe8e5628f82c299(arg0, arg1) {
