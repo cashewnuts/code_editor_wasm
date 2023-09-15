@@ -64,7 +64,7 @@ export interface CodeEditorComponent {
   id: string,
   name: string,
   module_info: string,
-  params: string,
+  params: Param[],
   body:
     | string
     | null
@@ -72,12 +72,12 @@ export interface CodeEditorComponent {
 
 
 
-export type ParamKind = {
+export type Param = {
     id: string,
     name: string,
-    kind: ParamKind,
-    constraints: ParamConstraint[],
-    default_value?: ParamRef,
+    kind: string,
+    constraints: string,
+    default_value?: string,
     required: boolean,
 }
 
