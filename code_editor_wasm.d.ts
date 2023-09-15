@@ -65,7 +65,7 @@ export interface CodeEditorComponent {
   name: string,
   module_info: string,
   params: Param[],
-  body:
+  body?:
     | string
     | null
 }
